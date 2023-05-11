@@ -1,0 +1,37 @@
+    <table border="1">
+      <thead>
+        <tr>
+          <th>BillNo</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Astar</th>
+          <th>Piku</th>
+          <th>Status</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for work in works %}
+        <tr>
+          {% load custom_tags %}
+          {% if request.user|is_user_in_group:"Worker_grp" or request.user|is_user_in_group:"Owner_grp" %}
+          <td><a href="{% url 'billinfo' work.id %}">{{work.billno}}</a></td>
+          <td><a href="{% url 'customerinfo' work.customer.id %}">{{work.customer.name}}</a></td>
+          {% else %}
+          <td>{{work.billno}}</td>
+          <td>{{work.customer.name}}</td>
+          {% endif %}
+          <td>{{work.date}}</td>
+          <td>{{work.astar}}</td>
+            <td>{{work.piku}}</td>
+          {% if work.complited %}
+            <td>Completed</td>
+          {% else %}
+          <td>Under process..</td>
+          {% endif%}
+          <td>{{work.cost}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+    </table>

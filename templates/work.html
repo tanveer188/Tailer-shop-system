@@ -1,0 +1,21 @@
+{% load custom_tags %}
+{% if request.user|is_user_in_group:"Owner_grp" %}
+<span style="float:right;"><a href="{% url 'Edit' model_name='Work' pk=work.id %}">Edit</a></span>
+{% endif %}
+    <label for="Billno">Billno</label><p>{{work.billno}}</p>
+    <label for="Date">Date</label><p>{{work.date}}</p>
+    <label for="Astar">Astar</label><p>{{work.astar}}</p>
+    <label for="piku">Piku</label><p>{{work.piku}}</p>
+    <label for="completed">Completed</label>
+    {% if work.completed %}
+    <p>Yes</p>
+    {% else %}
+    <p>Under Process</p>
+    {% endif %}
+    <label for="delivered">Delivered</label>
+    {% if work.delivered %}
+    <p>Yes</p>
+    {% else %}
+    <p>No</p>
+    {% endif %}
+    <label for="price">Price</label><p>{{work.cost}}</p>

@@ -1,0 +1,7 @@
+{% load custom_tags %}
+{% if request.user|is_user_in_group:"Owner_grp" %}
+    <span style="float:right;"><a href="{% url 'Edit' model_name='Customers' pk=customer.id %}">Edit</a></span>
+{% endif %}
+    <h2>{{customer.name}}</h2>
+    <p>{{customer.mobileno}}</p>
+    <p>{{customer.address}}</p>

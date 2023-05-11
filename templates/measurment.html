@@ -1,0 +1,17 @@
+{% load custom_tags %}
+{% if add_measurement and request.user|is_user_in_group:"Owner_grp" %}
+<span style="float:right;"><a href="{% url 'newmeasurment' pk=customer.id %}">Add Measurment</a></span>
+{% elif add_measurement %}
+<h2>Measurment not exists</h2>
+{% elif request.user|is_user_in_group:"Owner_grp" %}
+<span style="float:right;"><a href="{% url 'Edit' model_name='Measurement' pk=measurement.id %}">Edit</a></span>
+<h3>Measurments</h3>
+    <p>legs : {{measurement.legs}}</p>
+    <p>west : {{measurement.west}}</p>
+    <p>hand : {{measurement.hand}}</p>
+{% else %}
+<h3>Measurments</h3>
+    <p>legs : {{measurement.legs}}</p>
+    <p>west : {{measurement.west}}</p>
+    <p>hand : {{measurement.hand}}</p>
+{% endif %}
