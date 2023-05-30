@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tailor Shop Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    
+    h1, h2 {
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    
+    th {
+      background-color: #f5f5f5;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    td {
+      padding: 8px;
+    }
+    
+    .total-row {
+      font-weight: bold;
+    }
+    
+    .rules {
+      margin-top: 20px;
+    }
+    
+    .rules ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tailor Shop Bill</h1>
+    
+    <h2>Customer Details</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <td>John Doe</td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>123 Main Street, City, Country</td>
+      </tr>
+      <tr>
+        <th>Contact</th>
+        <td>+1 123-456-7890</td>
+      </tr>
+    </table>
+    
+    <h2>Items</h2>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td>Shirt</td>
+        <td>1</td>
+        <td>$25</td>
+        <td>$25</td>
+      </tr>
+    </table>
+    
+    <table>
+      <tr class="total-row">
+        <th colspan="3">Total</th>
+        <td>$25</td>
+      </tr>
+    </table>
+    
+    <h2>Payment Details</h2>
+    <table>
+      <tr>
+        <th>Payment Status</th>
+        <td>Paid</td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td>May 28, 2023</td>
+      </tr>
+    </table>
+    
+    <div class="rules">
+      <h2>Rules</h2>
+      <ul>
+        <li>Payment should be made within 7 days.</li>
+        <li>No refunds or exchanges after 30 days from the date of purchase.</li>
+        <li>Please keep the bill as proof of purchase.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

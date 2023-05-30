@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" type="text/css" media="all" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <title>Organization</title>
+  </head>
+  <body>
+    {% include 'messages.html' %}
+    <h2>{{organization.name}}</h2>
+    <span><a href="{% url 'Edit' model_name='organization' pk=1%}">Edit</a></span>
+    <table border="0">
+      <tr>
+        <th>Name</th>
+        <th>is_owner</th>
+      </tr>
+    {% for member in members %}
+      <tr>
+        <td>{{member.user.username}}</td>
+        <td>
+          <form method="post" >
+            {% csrf_token %}
+            <input type="hidden" name="user" id="user" value="{{member.id}}" />
+  <select name="role" id="role">
+    <option {% if member.is_owner %} selected {% endif %} value=1>Owner</option>
+    <option value=0 {% if member.is_owner == False %} selected {% endif %} >Worker</option>
+  </select>
+  <input type="submit" value="Submit">
+</form>
+
+<form action="{% url 'newmember' %}" method="post" accept-charset="utf-8">
+  {% csrf_token %}
+  <input type="hidden" name="user_id" id="user_id" value={{member.user.id}} />
+  <input type="hidden" name="delete" id="delete" value=1 />
+  <input type="hidden" name="role" id="role" value={% if member.is_owner == True %}1{% else %}0{% endif %}>
+  <input type="submit" name="submit" id="submit" value="Remove" />
+</form>
+          
+        </td>
+      </tr>
+    {% endfor %}
+    <a href="{% url 'newmember' %}">Add Member+</a>
+    </table>
+  </body>
+</html>

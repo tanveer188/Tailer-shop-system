@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title></title>
+  
+  </head>
+  <body>
+          <form method="post" >
+            {% csrf_token %}
+            <select name="user_id" id="user_id">
+              {% for user in users %}
+              <option value="{{user.id}}">{{user.username}}</option>
+                  {% endfor %}
+            </select>
+  <select name="role" id="role">
+    <option value=1>Owner</option>
+    <option value=0 >Worker</option>
+  </select>
+  <input type="submit" value="Submit">
+</form>
+
+  
+  </body>
+</html>

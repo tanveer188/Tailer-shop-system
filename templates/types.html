@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Types</title>
+  </head>
+  <body>
+    <a href="{% url 'newtype' %}">New</a>
+    
+    {% for type in types %}
+    <p>{{type.name}}</p>
+    <a href="{% url 'Edit' model_name='Types' pk=type.id %}">Edit</a>
+    
+<form action="{% url 'delete' model_name='Types' %}" method="post" accept-charset="utf-8">
+  {% csrf_token %}
+  <input type="hidden" name="type_id" id="type_id" value={{type.id}} />
+  <input type="submit" name="submit" id="submit" value="Remove" />
+</form>
+    {% endfor %}
+  </body>
+</html>
