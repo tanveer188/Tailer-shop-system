@@ -12,6 +12,8 @@
   {% if request.user|is_user_in_group:"Owner_grp" %}
     <a href="{% url 'newbill' %}" >New bill+</a>
     <a href="{% url 'newcustomer' %}" >New Customer+</a>
+    <a href="{% url 'organization' %}" >Organization </a></a>
+    <a href="{% url 'typepage' %}" >Work Types </a></a>
     <br />
     <hr />
     <hr />

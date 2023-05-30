@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Owner_db,Work
+from .models import Work,Organization,Member,Types
 # Register your models here.
-admin.site.register([Owner_db,Work])
+admin.site.register([Work,Organization,Member,Types])

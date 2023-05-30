@@ -5,6 +5,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class Customers(models.Model):
+    organization = models.ForeignKey("Owner.Organization", on_delete=models.CASCADE)
     mobileno = models.IntegerField(unique=True,blank=True,null=True,validators=[
             MaxValueValidator(9999999999),
             MinValueValidator(1111111111)

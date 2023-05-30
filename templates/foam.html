@@ -3,12 +3,16 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title></title>
+    {% load static %}
   </head>
   <body>
     <form action="" method="post" accept-charset="utf-8">
       {% csrf_token %}
-      {{foam}}
+      {{foam.as_p}}
       <input type="submit" name="" id="" value="submit" />
     </form>
+  <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+{{ foam.media }}
   </body>
 </html>

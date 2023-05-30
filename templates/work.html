@@ -1,6 +1,11 @@
 {% load custom_tags %}
 {% if request.user|is_user_in_group:"Owner_grp" %}
 <span style="float:right;"><a href="{% url 'Edit' model_name='Work' pk=work.id %}">Edit</a></span>
+<span style="float:right;"><form action="{% url 'delete' model_name='Work' %}" method="post" accept-charset="utf-8">
+  {% csrf_token %}
+  <input type="hidden" name="work_id" id="work_id" value="{{work.id}}" />
+  <input type="submit" name="submit" id="submit" value="Delete" />
+</form></span>
 {% endif %}
     <label for="Billno">Billno</label><p>{{work.billno}}</p>
     <label for="Date">Date</label><p>{{work.date}}</p>
